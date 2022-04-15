@@ -4,7 +4,7 @@
 ##################################
 import sys, getopt, serial
 
-ver = "v1.2 03/24/2022"
+ver = "v1.3 04/15/2022"
 
 ####################################
 #                                  #
@@ -38,13 +38,13 @@ def main ( argv ):
     ser.open()
     ser.write ( str.encode ( ":451\n" ))        # get product ID
     read_val = ser.read ( size = 16 )
-    print ( "prod: " +bytes.decode ( read_val ))
+    print ( "prod: " + bytes.decode ( read_val ))
     ser.close()
     
     ser.open()
     print ( " cmd: " + cmd )
     ser.write ( str.encode ( cmd + "\n" ))
-    read_val = ser.read ( size = 256 )
+    read_val = ser.read ( size = 128 )
     print ( " res: " + bytes.decode ( read_val ))
     ser.close()
 
